@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Webpack App</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script defer src="index_bundle.js"></script>
+
+
+
+
+
+
+</head>
+
+<body class="text-white text-center sfondobenvenuto">
+
+
+
+
+
+
+
+  <!---Sezione Previsione Meteo Principale------>
+  <section class="container-fluid">
+
+
+
+    <div class="row">
+
+      <!---Header-Logo------>
+
+      <article class="col-md-12">
+        <img class=" IMGweatherapp img-fluid float-sm-none mt-sm-5" src="img/WeatherApp.png" alt="logo">
+      </article>
+      <article class="col-md-12">
+        <h1 class="città text-center cittaCercata mt-5"></h1>
+      </article>
+
+      <!---Previsione Meteo Attuale---->
+      <div class="bloccoMeteo_attuale col-6 col-lg-2 mx-md-auto p-0 order-2 order-md-0 mx-auto">
+
+
+        <form class="float-left float-md-none float-sm-none">
+          <div class="form-group">
+            <input class="btn btn-primary btn-lg d-block w-100 mt-5 p-3 text-lg-left text-center " type="text" placeholder="Inserisci la tua Città" id="Città">
+          </div>
+        </form>
+        <button class="btn btn-primary btn-lg d-block w-100 " id="search" type="submit">
+          Cerca <img class="img-fluid ml-1" src="img/LenteDiIngrandimento.svg" alt="LenteDiIngrandimento">
+        </button>
+      </div>
+      <!---Benvenuto------->
+      <article class="col-sm-12 mt-5 benvenuto">
+             <h1 class="text-primary">Benvenuto in WeatherApp</h1>
+             <p class="col-9 mx-auto mt-4">Clicca su Consenti per Geolocalizzarti o se desideri un'altra città<br>
+               clicca su rifiuta e inserisci la città desiderata</p>
+          </article>
+      <!-------------------------->
+      <!---Icona Meteo Attuale------>
+      <article class="col-lg-8 col-md-12 mt-md-5 col-sm-12 col-xs-4 order-1 order-md-1 d-none sezioneMeteoAttuale">
+        <img src="img/01d.svg" class="IconMeteoAttuale  mt-4 mt-md-0" alt="sole">
+        <h1 class="day_current mt-5">Oggi</h1>
+        <h2 class="tempo">Sollegiato</h2>
+        <h3 class="tempMAX_attuale">20°/</h3>
+        <h3 class="tempMIN_attuale">25°</h3>
+        <img src="img/IconaGeopozione.svg" class=" d-none m-auto pt-3 IconaGeopozione" alt="Geoposizione">
+      </article>
+      <!------------------------------>
+    </div>
+
+  </section>
+
+  <!--Previsone Oraria------->
+<section class="container-fluid container-lg mt-5 mb-5 sez_carosello d-none ">
+  <div class="row">
+    <div class="col-sm-12">
+    <h1 class="text-white d-block">Previsione Oraria</h1>
+    <p>Ogni Tre Ore</p>
+  <div id="carouselOrario" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <section class="container">
+          <div class="row mt-4">
+            <article class=" col-sm-6">
+              <img src="img/03n.svg" class="w-25 icon" alt="nuvoloso" id="0_icon">
+              <h2 id="0_ora" class="ora">Ora</h2>
+              <h3 id="0_condizioneMeteo" class="condizioneMeteo">Nuvoloso</h3>
+              <h1 class="treoreMax" id="0_tempMAX_3_Ore">20°/</h1>
+              <h1 class="treoreMin" id="0_tempMIN_3_Ore">25°</h1>
+              <p id="0_Umidità" class="Umidità">Umidità 50%</p>
+              <img src="img/raindrops.svg" alt="umidità" class="IconaUmidità">
+            </article>
+            <article class="col-sm-6 mt-5 mt-sm-0">
+              <img src="img/10d.svg" class="w-25 icon" alt="Pioggia" id="1_icon">
+              <h2 id="1_ora" class="ora">Ora</h2>
+              <h3 id="1_condizioneMeteo" class="condizioneMeteo">Pioggia</h3>
+              <h1 class="treoreMax" id="1_tempMAX_3_Ore">20°/</h1>
+              <h1 class="treoreMin" id="1_tempMIN_3_Ore">25°</h1>
+              <p id="1_Umidità" class="Umidità">Umidità 50%</p>
+              <img src="img/raindrops.svg" alt="umidità" class="IconaUmidità">
+            </article>
+          </div>
+        </section>
+
+      </div>
+      <div class="carousel-item">
+        <section class="container">
+
+          <div class="row">
+            <article class="col-sm-6">
+              <img src="img/09d.svg" class="w-25 icon" alt="temporale" id="2_icon">
+              <h2 id="2_ora" class="ora">Ora</h2>
+              <h3 id="2_condizioneMeteo" class="condizioneMeteo">Temporali</h3>
+              <h1 class="treoreMax" id="2_tempMAX_3_Ore">20°/</h1>
+              <h1 class="treoreMin" id="2_tempMIN_3_Ore">25°</h1>
+              <p id="2_Umidità" class="Umidità">Umidità 50%</p>
+              <img src="img/raindrops.svg" alt="umidita" class="IconaUmidità">
+            </article>
+            <article class="col-sm-6 mt-5 mt-sm-0">
+              <img src="img/50d.svg" class="w-25 icon" alt="Nebbia" id="3_icon">
+              <h2 id="3_ora" class="ora">Ora</h2>
+              <h3 id="3_condizioneMeteo" class="condizioneMeteo">Nebbia</h3>
+              <h1 class="treoreMax" id="3_tempMAX_3_Ore">20°/</h1>
+              <h1 class="treoreMin" id="3_tempMIN_3_Ore">25°</h1>
+              <p id="3_Umidità" class="Umidità">Umidità 50%</p>
+              <img src="img/raindrops.svg" alt="umidita" class="IconaUmidità">
+            </article>
+          </div>
+        </section>
+
+      </div>
+      <div class="carousel-item">
+        <section class="container">
+          <div class="row mt-4">
+            <article class="col-sm-6">
+              <img src="img/01n.svg" class="w-25 icon" alt="Luna" id="4_icon">
+
+              <h2 id="4_ora" class="ora">Ora</h2>
+              <h3 id="4_condizioneMeteo" class="condizioneMeteo">Sereno</h3>
+              <h1 class="treoreMax" id="4_tempMAX_3_Ore">20°/</h1>
+              <h1 class="treoreMin" id="4_tempMIN_3_Ore">25°</h1>
+              <p id="4_Umidità" class="Umidità">Umidità 50%</p>
+              <img src="img/raindrops.svg" alt="umidità" class="IconaUmidità">
+
+            </article>
+            <article class="col-sm-6 mt-5 mt-sm-0">
+              <img src="img/01n.svg" class="w-25 icon" alt="Luna" id="5_icon">
+
+              <h2 id="5_ora" class="ora">Ora</h2>
+              <h3 id="5_condizioneMeteo" class="condizioneMeteo">Sereno</h3>
+              <h1 class="treoreMax" id="5_tempMAX_3_Ore">20°/</h1>
+              <h1 class="treoreMin" id="5_tempMIN_3_Ore">25°</h1>
+              <p id="5_Umidità" class="Umidità">Umidità 50%</p>
+              <img src="img/raindrops.svg" alt="Umidità" class="IconaUmidità">
+
+            </article>
+          </div>
+        </section>
+
+      </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselOrario" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden"></span>
+    </a>
+    <a class="carousel-control-next" href="#carouselOrario" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden"></span>
+    </a>
+  </div>
+</div>
+</div>
+</section>
+
+  <!---Previsione Giornaliera----->
+  <section class="container-fluid container-lg mt-5 mb-5 sez_carosello d-none ">
+    <div class="row">
+      <div class="col-sm-12">
+      <h1 class="text-white d-block">Previsione Giornaliera</h1>
+      <p>Ogni Giorno</p>
+  <div id="carouselMeteoGiornaliera" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+
+            <div class="carousel-item active">
+        <section class="container">
+          <div class="row mt-4">
+            <article class="col-sm-6">
+              <img src="img/03n.svg" class="w-25 icon_Giornaliera" alt="nuvoloso" id="0_icon_Giornaliera">
+              <h2 id="0_day" class="day">Lunedì</h2>
+              <h3 id="0_condizioneMeteoGiornaliera" class="condizioneMeteoGiornaliera">Nuvoloso</h3>
+              <h1 class="tempmaxGiorno" id="0_tempMAX">20°/</h1>
+              <h1 class="tempminGiorno" id="0_tempMIN">25°</h1>
+              <p id="0_Umidità_Giornaliera" class="UmiditàGiornaliera">Umidità 50%</p>
+              <img src="img/raindrops.svg" alt="umidità" class="IconaUmidità">
+
+            </article>
+            <article class="col-sm-6 mt-5 mt-sm-0">
+              <img src="img/10d.svg" class="w-25 icon_Giornaliera" alt="Pioggia" id="1_icon_Giornaliera">
+
+              <h2 id="1_day" class="day">Martedi</h2>
+              <h3 id="1_condizioneMeteoGiornaliera" class="condizioneMeteoGiornaliera">Pioggia</h3>
+              <h1 class="tempmaxGiorno" id="1_tempMAX">20°/</h1>
+              <h1 class="tempminGiorno" id="1_tempMIN">25°</h1>
+              <p id="1_Umidità_Giornaliera" class="UmiditàGiornaliera">Umidità 50%</p>
+              <img src="img/raindrops.svg" alt="umidità" class="IconaUmidità">
+
+            </article>
+          </div>
+        </section>
+
+        </div>
+
+    <div class="carousel-item">
+        <section class="container">
+          <div class="row mt-4">
+            <article class="col-sm-6">
+              <img src="img/09d.svg" class="w-25 icon_Giornaliera" alt="temporale" id="2_icon_Giornaliera">
+
+              <h2 id="2_day" class="day">Mercoledi</h2>
+              <h3 id="2_condizioneMeteoGiornaliera">Temporali</h3>
+              <h1 class="tempmaxGiorno" id="2_tempMAX">20°/</h1>
+              <h1 class="tempminGiorno" id="2_tempMIN">25°</h1>
+              <p id="2_UmiditàGiornaliera" class="UmiditàGiornaliera">Umidità 50%</p>
+              <img src="img/raindrops.svg" alt="umidita" class="IconaUmidità">
+
+            </article>
+            <article class="col-sm-6 mt-5 mt-sm-0">
+              <img src="img/50d.svg" class="w-25 icon_Giornaliera" alt="Nebbia" id="3_icon_Giornaliera">
+
+              <h2 id="3_day" class="day">Giovedi</h2>
+              <h3 id="3_condizioneMeteoGiornaliera" class="condizioneMeteoGiornaliera">Nebbia</h3>
+              <h1 class="tempmaxGiorno" id="3_tempMAX">20°/</h1>
+              <h1 class="tempminGiorno" id="3_tempMIN">25°</h1>
+              <p id="3_UmiditàGiornaliera" class="_UmiditàGiornaliera">Umidità 50%</p>
+              <img src="img/raindrops.svg" alt="umidita" class="IconaUmidità">
+
+            </article>
+          </div>
+        </section>
+
+
+        </div>
+
+
+      <div class="carousel-item">
+        <section class="container">
+          <div class="row mt-4">
+            <article class="col-sm-6">
+              <img src="img/01n.svg" class="w-25 icon_Giornaliera" alt="Luna" id="4_icon_Giornaliera">
+              <div id="4_effettoTendinaDay" class="effettoTendina">
+                <h2 id="4_day" class="day">Venerdi</h2>
+                <h3 id="4_condizioneMeteoGiornaliera" class="condizioneMeteoGiornaliera">Sereno</h3>
+                <h1 class="tempmaxGiorno" id="4_tempMAX">20°/</h1>
+                <h1 class="tempminGiorno" id="4_tempMIN">25°</h1>
+                <p id="4_UmiditàGiornaliera" class="UmiditàGiornaliera">Umidità 50%</p>
+                <img src="img/raindrops.svg" alt="umidità" class="IconaUmidità">
+              </div>
+            </article>
+            <article class="col-sm-6 mt-5 mt-sm-0">
+              <img src="img/01n.svg" class="w-25 icon_Giornaliera" alt="Luna" id="5_icon_Giornaliera">
+              <div id="5_effettoTendinaDay" class="effettoTendina">
+                <h2 id="5_day" class="day">Sabato</h2>
+                <h3 id="5_condizioneMeteoGiornaliera" class="condizioneMeteoGiornaliera">Sereno</h3>
+                <h1 class="tempmaxGiorno" id="5_tempMAX">20°/</h1>
+                <h1 class="tempminGiorno" id="5_tempMIN">25°</h1>
+                <p id="5_UmiditàGiornaliera" class="UmiditàGiornaliera">Umidità 50%</p>
+                <img src="img/raindrops.svg" alt="Umidità" class="IconaUmidità">
+              </div>
+            </article>
+
+          </div>
+        </section>
+    </div>
+
+  </div>
+    <a class="carousel-control-prev" href="#carouselMeteoGiornaliera" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden"></span>
+    </a>
+    <a class="carousel-control-next" href="#carouselMeteoGiornaliera" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden"></span>
+    </a>
+        </div>
+      </div>
+    </div>
+      </section>
+
+
+
+
+
+
+
+
+
+  <div class="modal fade" id="modalError_CittàNonTrovata" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content bg-danger">
+        <div class="modal-header">
+          <h4 class="text-white">ATTENZIONE</h4><img src="img/warning.svg" class="icon-warning" alt="warning">
+          <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <h4 class="text-white">Controlla di aver digitato correttamente il nome della citta</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="modalError_NonValido" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content bg-danger">
+        <div class="modal-header">
+          <h4 class="text-white">ATTENZIONE</h4><img src="img/warning.svg" class="icon-warning" alt="warning">
+          <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <h4 class="text-white">Hai dimenticato di inserire la città</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="modalError_ConnessioneAssente" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content bg-danger">
+        <div class="modal-header">
+          <h4 class="text-white">ATTENZIONE</h4><img src="img/warning.svg" class="icon-warning" alt="warning">
+          <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <h4 class="text-white">Controlla se la Connessione è attiva e ricarica la pagina</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+</body>
+
+</html>
