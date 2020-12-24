@@ -64,7 +64,7 @@ $(document).ready(function() {
 
   function recuperoElemetsDom_PrevisioneAttuale_SlideDOWN(citta) {
     let prelievocitta = citta;
-    let prelievoPrevisioneAttuale = `http://api.openweathermap.org/data/2.5/weather?q=${prelievocitta}&units=metric&lang=it&appid=${apiKeyMeteo}`;
+    let prelievoPrevisioneAttuale = `https://api.openweathermap.org/data/2.5/weather?q=${prelievocitta}&units=metric&lang=it&appid=${apiKeyMeteo}`;
 
     $.ajax({
       url: prelievoPrevisioneAttuale,
@@ -125,7 +125,7 @@ $(document).ready(function() {
   }; /* Funzione Recupero Dati e elementi Dom Previsione Meteo Principale SLIDE_DOWN*/
   function recuperoElemetsDom_PrevisioneTreOre_SlideDOWN(citta) {
     let prelievocitta = citta;
-    let prelievoPrevisioneTreOre = `http://api.openweathermap.org/data/2.5/forecast?q=${prelievocitta}&cnt=6&units=metric&lang=it&appid=${apiKeyMeteo}`;
+    let prelievoPrevisioneTreOre = `https://api.openweathermap.org/data/2.5/forecast?q=${prelievocitta}&cnt=6&units=metric&lang=it&appid=${apiKeyMeteo}`;
     $.ajax({
       url: prelievoPrevisioneTreOre,
       type: "GET",
@@ -242,7 +242,7 @@ $(document).ready(function() {
 
   function recuperoElemetsDom_PrevisioneAttuale_SlideUP(citta) {
     let prelievocitta = citta;
-    let prelievoPrevisioneAttuale = `http://api.openweathermap.org/data/2.5/weather?q=${prelievocitta}&units=metric&lang=it&appid=${apiKeyMeteo}`;
+    let prelievoPrevisioneAttuale = `https://api.openweathermap.org/data/2.5/weather?q=${prelievocitta}&units=metric&lang=it&appid=${apiKeyMeteo}`;
     $.ajax({
       url: prelievoPrevisioneAttuale,
       type: "GET",
@@ -288,7 +288,7 @@ $(document).ready(function() {
   }; /* Funzione Recupero Dati e elementi Dom Previsione Meteo Principale SLIDE_DOWN*/
   function recuperoElemetsDom_PrevisioneTreOre_SlideUP(citta) {
     let prelievocitta = citta;
-    let prelievoPrevisioneTreOre = `http://api.openweathermap.org/data/2.5/forecast?q=${prelievocitta}&cnt=6&units=metric&lang=it&appid=${apiKeyMeteo}`;
+    let prelievoPrevisioneTreOre = `https://api.openweathermap.org/data/2.5/forecast?q=${prelievocitta}&cnt=6&units=metric&lang=it&appid=${apiKeyMeteo}`;
     $.ajax({
       url: prelievoPrevisioneTreOre,
       type: "GET",
@@ -401,7 +401,7 @@ $(document).ready(function() {
   function success(position) {
     let lat = position.coords.latitude;
     let lon = position.coords.longitude;
-    $.getJSON(`http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&lang=it&units=metric&appid=${apiKeyMeteo}`, function(dati_Geolocalizzazione) {
+    $.getJSON(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&lang=it&units=metric&appid=${apiKeyMeteo}`, function(dati_Geolocalizzazione) {
       console.log(dati_Geolocalizzazione.name);
       $('body').removeClass('sfondobenvenuto');
       recuperoElemetsDom_PrevisioneAttuale_SlideDOWN(dati_Geolocalizzazione.name);
@@ -438,7 +438,7 @@ $(document).ready(function() {
       $("body").removeClass("sfondobenvenuto");
       recuperoElemetsDom_PrevisioneAttuale_SlideDOWN(citta);
       recuperoElemetsDom_PrevisioneTreOre_SlideDOWN(citta);
-      $.getJSON(`http://api.openweathermap.org/data/2.5/weather?q=${citta}&units=metric&lang=it&appid=${apiKeyMeteo}`, function(dati) {
+      $.getJSON(`https://api.openweathermap.org/data/2.5/weather?q=${citta}&units=metric&lang=it&appid=${apiKeyMeteo}`, function(dati) {
         let latidutine = dati.coord.lat;
         let longitudine = dati.coord.lon;
         recuperoElemetsDom_PrevisioneGiornaliera_SlideDOWN(latidutine, longitudine)
@@ -449,7 +449,7 @@ $(document).ready(function() {
       $("body").addClass("sfondobenvenuto");
       recuperoElemetsDom_PrevisioneAttuale_SlideUP(citta);
       recuperoElemetsDom_PrevisioneTreOre_SlideUP(citta);
-      $.getJSON(`http://api.openweathermap.org/data/2.5/weather?q=${citta}&units=metric&lang=it&appid=${apiKeyMeteo}`, function(dati) {
+      $.getJSON(`https://api.openweathermap.org/data/2.5/weather?q=${citta}&units=metric&lang=it&appid=${apiKeyMeteo}`, function(dati) {
         let latidutine = dati.coord.lat;
         let longitudine = dati.coord.lon;
         recuperoElemetsDom_PrevisioneGiornaliera_SlideUP(latidutine, longitudine)
